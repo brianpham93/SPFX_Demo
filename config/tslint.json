@@ -36,7 +36,7 @@
       "no-unreachable": true,
       "no-use-before-declare": true,
       "no-with-statement": true,
-      "semicolon": true,
+      "semicolon": false,
       "trailing-comma": false,
       "typedef": false,
       "typedef-whitespace": false,
