@@ -1,0 +1,20 @@
+{
+  "$schema": "../../../node_modules/@microsoft/sp-module-interfaces/lib/manifestSchemas/jsonSchemas/clientSideComponentManifestSchema.json",
+
+  "id": "a597f9db-eb5f-43af-b045-10081b5e706a",
+  "alias": "ContactsWebPart",
+  "componentType": "WebPart",
+  "version": "0.0.1",
+  "manifestVersion": 2,
+
+  "preconfiguredEntries": [{
+    "groupId": "a597f9db-eb5f-43af-b045-10081b5e706a",
+    "group": { "default": "Under Development" },
+    "title": { "default": "Contacts" },
+    "description": { "default": "SPFX demo with Contacts app" },
+    "officeFabricIconFontName": "Page",
+    "properties": {
+      "description": "Contacts"
+    }
+  }]
+}
