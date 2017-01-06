@@ -1,10 +1,13 @@
 import * as React from 'react';
 import { css } from 'office-ui-fabric-react';
+import {Router, Route, browserHistory,IndexRoute} from "react-router"
+import {Provider} from "react-redux"
 
 import styles from '../Contacts.module.scss';
 import { IContactsWebPartProps } from '../IContactsWebPartProps';
 
 export interface IContactsProps extends IContactsWebPartProps {
+  companyName: string  
 }
 
 export default class Contacts extends React.Component<IContactsProps, {}> {
@@ -20,7 +23,7 @@ export default class Contacts extends React.Component<IContactsProps, {}> {
               <p className='ms-font-l ms-fontColor-white'>
                 Customize SharePoint experiences using Web Parts.
               </p>
-              <p className='ms-font-l ms-fontColor-white'>
+              <p className='ms-font-l ms-fontColor-white'>                
                 {this.props.description}
               </p>
               <a
