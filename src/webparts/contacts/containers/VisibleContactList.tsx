@@ -1,21 +1,24 @@
 import { connect } from "react-redux"
+import * as React from "react"
 // import ContactList from "../components/ContactList.jsx"
 import {ContactList} from "../components"
 import {getAllContacts,getContactsByFirstNameChar,getContactInfo} from "../actions"
+import {IVisibleContactListState} from '../interfaces';
 
-const getVisibleContacts = (contacts, fNameChar) => {
+const getVisibleContacts = (contacts, char) => {
 
-	switch (fNameChar == undefined){
+	switch (char == undefined){
 	case true:	
 		return contacts
 	default:		
-		return contacts.filter(t => t.name.first.indexOf(fNameChar) != -1)
+		return contacts.filter(t => t.name.first.indexOf(char) != -1)
 	}		
 }
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state: IVisibleContactListState, ownProps) => {
 	return {		
-		contacts: getVisibleContacts(state.contacts,ownProps.romaji)
+		contacts: getVisibleContacts(state.contacts,ownProps.romaji),
+		romajiChar: ownProps.romaji
 	}
 }
 
@@ -31,9 +34,13 @@ const mapDispatchToProps = (dispatch) => ({
 	}
 })
 
-const VisibleContactList = connect(
+const VisibleContactList = ({contacts,romaji}) => (
+	<div>
+		<ContactList contacts={contacts}/>
+	</div>
+)
+
+export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(ContactList)
-
-export default VisibleContactList
+)(VisibleContactList)

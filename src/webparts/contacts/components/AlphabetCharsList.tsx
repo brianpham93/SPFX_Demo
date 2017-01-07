@@ -2,11 +2,11 @@ import * as React from "react"
 import {AlphabetChars} from "../constants"
 import {Link} from "office-ui-fabric-react/lib/Link"
 
-const FirstNameList = () => {
+const AlphabetCharsList = ({alphabetChars}) => {
 	return (
         <div>
           {
-              AlphabetChars.map((char) => 
+              alphabetChars.map((char) => 
               <div key={char.romaji}>
                 <Link href={"contacts/" + char.romaji}>{char.hiragana}/{char.romaji}</Link>
                 <br/>
@@ -17,4 +17,4 @@ const FirstNameList = () => {
 	)
 }
 
-export default FirstNameList
+export default AlphabetCharsList

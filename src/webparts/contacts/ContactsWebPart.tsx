@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
-import {Router, Route, browserHistory,IndexRoute} from "react-router"
+import {Router, Route, browserHistory,IndexRoute, createMemoryHistory} from "react-router"
 import {Provider} from "react-redux"
 import * as createLogger from "redux-logger"
 import {createStore, applyMiddleware} from 'redux';
@@ -28,6 +28,7 @@ let initalState:IGlobalState = {
 let logger = createLogger()
 let createStoreWithMiddleware = applyMiddleware(logger)(createStore)
 let store = createStoreWithMiddleware(rootReducer, initalState)
+let history = createMemoryHistory()
 
 export default class ContactsWebPart extends BaseClientSideWebPart<IContactsWebPartProps> {
 
@@ -35,20 +36,35 @@ export default class ContactsWebPart extends BaseClientSideWebPart<IContactsWebP
     super(context);
   }
 
-  public render(){
-    return (
-      <Provider store={store}>
-        <Router history={browserHistory}>
+  // public render(){
+  //   return (
+  //     <Provider store={store}>
+  //       <Router history={browserHistory}>
+  //             <Route path="/" component={AlphabetScreen}>                                
+  //                 <IndexRoute component={AlphabetScreen}/>
+  //             </Route>            
+  //             <Route>                
+  //                 <IndexRoute component={SearchScreen}/>
+  //                 <Route path="contacts/(:char)" component={SearchScreen}/>
+  //             </Route>
+  //         </Router>    
+  //     </Provider>, this.domElement
+  //   )
+  // }
+   public render(){
+    const element = (<Provider store={store}>
+         <Router history={history}>
               <Route path="/" component={AlphabetScreen}>                                
-                  <IndexRoute component={AlphabetScreen}/>
+                   <IndexRoute component={AlphabetScreen}/>
               </Route>            
               <Route>                
                   <IndexRoute component={SearchScreen}/>
-                  <Route path="contacts/(:char)" component={SearchScreen}/>
+                  <Route path="/contacts/(:char)" component={SearchScreen}/>
               </Route>
-          </Router>    
-      </Provider>
-    )
+         </Router>    
+      </Provider>)
+
+    ReactDom.render(element, this.domElement)
   }
   // public render(): void {    
   //   const element: React.ReactElement<IProviderProps> = React.createElement(Provider, {
