@@ -1,7 +1,7 @@
 {
   "entries": [
     {
-      "entry": "./lib/webparts/contacts/ContactsWebPart.js",
+      "entry": "./lib/webparts/contacts/ContactsWebPart.jsx",
       "manifest": "./src/webparts/contacts/ContactsWebPart.manifest.json",
       "outputPath": "./dist/contacts.bundle.js"
     }
