@@ -8,7 +8,7 @@ import {ContactList, SearchScreen} from './components';
 
 import {
   BaseClientSideWebPart,
-  IPropertyPaneSettings,
+  IPropertyPaneConfiguration,
   IWebPartContext,
   PropertyPaneTextField
 } from '@microsoft/sp-webpart-base';
@@ -33,7 +33,8 @@ let history = createMemoryHistory()
 export default class ContactsWebPart extends BaseClientSideWebPart<IContactsWebPartProps> {
 
   public constructor(context: IWebPartContext) {
-    super(context);
+    super();
+    // super(this.context);
   }
 
   // public render(){
@@ -74,7 +75,7 @@ export default class ContactsWebPart extends BaseClientSideWebPart<IContactsWebP
   //   ReactDom.render(element, this.domElement);
   // }
 
-  protected get propertyPaneSettings(): IPropertyPaneSettings {
+  protected getPropertyPaneConfiguration():  IPropertyPaneConfiguration {
     return {
       pages: [
         {

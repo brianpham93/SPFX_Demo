@@ -34,7 +34,7 @@ const mapDispatchToProps = (dispatch) => ({
 	}
 })
 
-const VisibleContactList = ({contacts,romaji}) => (
+const VisibleContactList = ({contacts}) => (
 	<div>
 		<ContactList contacts={contacts}/>
 	</div>

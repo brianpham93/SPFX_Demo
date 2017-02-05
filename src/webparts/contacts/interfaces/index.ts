@@ -1,11 +1,12 @@
 import {Store} from "redux"
+import * as React from 'react'
 
 export interface INameProp{
       last: string,
       first: string
 }
 
-export interface IVisibleContactListState extends __React.Props<any>{
+export interface IVisibleContactListState extends React.Props<any>{
     contacts: Array<IContact>,
     romajiChar: string
 }
